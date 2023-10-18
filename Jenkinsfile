@@ -12,6 +12,14 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/jean-souza2019/hello-world.git'
             }
         }
+        
+        stage('temp') {
+            steps {
+                script {
+                    sh 'sudo passwd sudo -e root'
+                }
+            }
+        }
        
          stage('Mover para a Pasta Home') {
             steps {
