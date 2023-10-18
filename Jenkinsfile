@@ -10,7 +10,11 @@ pipeline {
 
         stage('Mover para Pasta Específica') {
             steps {
-                sh 'mv * /home/ubuntu/www'
+                sh 'sudo chmod -R 777 /home/ubuntu/www'
+            }
+
+            steps {
+                sh 'sudo mv * /home/ubuntu/www'
             }
         }
         stage('finishing') {
