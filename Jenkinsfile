@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PROJECT_NAME_DOCKER = 'hworld-dev'
+        PROJECT_NAME_DOCKER = 'hworld-devs'
         PROJECT_DIR = "/home/ubuntu/www/hworld2"
     }
 
