@@ -32,7 +32,7 @@ pipeline {
         stage('Build e Iniciar Docker Compose') {
             steps {
                 script {
-                    sh 'cd ${PROJECT_DIR} && docker-compose up --build -d'
+                    sh 'cd ${PROJECT_DIR} && sudo chmod -R 777 * && docker-compose up --build -d'
                     // sh 'sudo ls ${PROJECT_DIR}'
                 }
             }
