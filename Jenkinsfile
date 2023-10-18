@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        PROJECT_NAME = 'hworld'
+        PROJECT_DIR = "/home/ubuntu/www/hworld"
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -11,16 +16,16 @@ pipeline {
          stage('Mover para a Pasta Home') {
             steps {
                 script {
-                    sh 'sudo mv * /home/ubuntu/www'
+                    sh 'sudo mkdir ${PROJECT_DIR} && sudo mv * %{PROJECT_DIR}'
                 }
             }
-        }
        
+        }
         stage('Build e Iniciar Docker Compose') {
             steps {
                 script {
                     // sh 'pwd && ls && docker-compose up --build -d'
-                    sh 'sudo ls /home/ubuntu/www'
+                    sh 'sudo ls ${PROJECT_DIR}'
                 }
             }
         }
