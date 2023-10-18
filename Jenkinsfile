@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PROJECT_NAME = 'hworld'
+        PROJECT_NAME_DOCKER = 'hworld-dev'
         PROJECT_DIR = "/home/ubuntu/www/hworld2"
     }
 
@@ -32,7 +32,7 @@ pipeline {
         stage('Build e Iniciar Docker Compose') {
             steps {
                 script {
-                    sh 'sudo chmod -R 777 ${PROJECT_DIR} && sudo docker-compose -f ${PROJECT_DIR}/docker-compose.yml up --build -d'
+                    sh 'sudo chmod -R 777 ${PROJECT_DIR} && sudo docker-compose -f ${PROJECT_DIR}/docker-compose.yml --project-name ${PROJECT_NAME_DOCKER} up --build -d'
                     // sh 'sudo ls ${PROJECT_DIR}'
                 }
             }
