@@ -8,11 +8,19 @@ pipeline {
             }
         }
        
+         stage('Mover para a Pasta Home') {
+            steps {
+                script {
+                    sh 'mv * ~/'
+                }
+            }
+        }
+       
         stage('Build e Iniciar Docker Compose') {
             steps {
                 script {
-                    sh 'pwd && ls && docker-compose up --build -d'
-                    // sh 'docker ps'
+                    // sh 'pwd && ls && docker-compose up --build -d'
+                    sh 'ls ~/'
                 }
             }
         }
