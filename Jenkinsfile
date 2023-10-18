@@ -42,6 +42,19 @@ pipeline {
     post {
         always {
             deleteDir()
+            script {
+                sh 'sudo rm -rf ${PROJECT_DIR}'
+            }
+        }
+        success {
+            script {
+                sh 'sucesso'
+            }
+        }
+        failure {
+            script {
+                sh 'falha'
+            }
         }
     }
 }
