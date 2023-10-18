@@ -7,12 +7,12 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/jean-souza2019/hello-world.git'
             }
         }
-
-        stage('Mover para Pasta Específica') {
+        stage('Setar permissao para pasta') {
             steps {
                 sh 'sudo chmod -R 777 /home/ubuntu/www'
             }
-
+        }
+        stage('Mover para Pasta Específica') {
             steps {
                 sh 'sudo mv * /home/ubuntu/www'
             }
