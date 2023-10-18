@@ -16,7 +16,7 @@ pipeline {
          stage('Mover para a Pasta Home') {
             steps {
                 script {
-                    sh 'sudo mkdir ${PROJECT_DIR} && sudo mv * %{PROJECT_DIR}'
+                    sh 'sudo mkdir ${PROJECT_DIR} && sudo mv * ${PROJECT_DIR}'
                 }
             }
        
