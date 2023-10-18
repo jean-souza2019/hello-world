@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         PROJECT_NAME = 'hworld'
-        PROJECT_DIR = "/home/ubuntu/www/hworld"
+        PROJECT_DIR = "/home/ubuntu/www/hworld2"
     }
 
     stages {
