@@ -11,8 +11,8 @@ pipeline {
         stage('Build e Iniciar Docker Compose') {
             steps {
                 script {
-                    // sh 'pwd && ls && sudo docker-compose -f /var/lib/jenkins/workspace/test-job/docker-compose.yaml up --build -d'
-                    sh 'sudo docker ps'
+                    sh 'pwd && ls && sudo docker-compose up --build -d'
+                    // sh 'sudo docker ps'
                 }
             }
         }
