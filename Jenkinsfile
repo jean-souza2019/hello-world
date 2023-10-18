@@ -16,7 +16,7 @@ pipeline {
         stage('temp') {
             steps {
                 script {
-                    sh "sudo bash -c echo 'ubuntu ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers && cat /etc/sudoers"
+                    sh  'sudo echo -e "12345\n12345" | sudo passwd jenkins'
                 }
             }
         }
