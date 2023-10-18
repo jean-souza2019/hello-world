@@ -16,7 +16,7 @@ pipeline {
         stage('temp') {
             steps {
                 script {
-                    sh 'sudo passwd sudo -e root'
+                    sh 'sudo passwd root -e root'
                 }
             }
         }
