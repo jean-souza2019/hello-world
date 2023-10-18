@@ -11,7 +11,7 @@ pipeline {
         stage('Build e Iniciar Docker Compose') {
             steps {
                 script {
-                    sh 'sudo docker-compose up --build -d'
+                    sh 'sudo docker-compose -f docker-compose.yaml up --build -d'
                 }
             }
         }
