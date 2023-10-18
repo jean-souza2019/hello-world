@@ -11,7 +11,7 @@ pipeline {
          stage('Mover para a Pasta Home') {
             steps {
                 script {
-                    sh 'mv * /home/ubuntu/www'
+                    sh 'sudo mv * /home/ubuntu/www'
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // sh 'pwd && ls && docker-compose up --build -d'
-                    sh 'ls /home/ubuntu/www'
+                    sh 'sudo ls /home/ubuntu/www'
                 }
             }
         }
