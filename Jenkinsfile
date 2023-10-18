@@ -11,16 +11,18 @@ pipeline {
         stage('Build e Iniciar Docker Compose') {
             steps {
                 script {
-                    sh 'pwd && ls && sudo docker compose up --build -d'
-                    // sh 'sudo docker ps'
+                    dir("${WORKSPACE}") {
+                        sh 'pwd && ls && sudo docker-compose up --build -d'
+                        // sh 'sudo docker ps'
+                    }
                 }
             }
         }
     }
 
-    // post {
-    //     always {
-    //         deleteDir()
-    //     }
-    // }
+    post {
+        always {
+            deleteDir()
+        }
+    }
 }
