@@ -13,13 +13,13 @@ pipeline {
             }
         }
         
-        stage('temp') {
-            steps {
-                script {
-                    sh  'sudo echo -e "12345\n12345" | sudo passwd jenkins'
-                }
-            }
-        }
+        // stage('temp') {
+        //     steps {
+        //         script {
+        //             sh  'sudo echo -e "12345\n12345" | sudo passwd jenkins'
+        //         }
+        //     }
+        // }
        
          stage('Mover para a Pasta Home') {
             steps {
@@ -32,8 +32,8 @@ pipeline {
         stage('Build e Iniciar Docker Compose') {
             steps {
                 script {
-                    // sh 'pwd && ls && docker-compose up --build -d'
-                    sh 'sudo ls ${PROJECT_DIR}'
+                    sh 'cd ${PROJECT_DIR} && docker-compose up --build -d'
+                    // sh 'sudo ls ${PROJECT_DIR}'
                 }
             }
         }
