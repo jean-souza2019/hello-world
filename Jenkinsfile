@@ -16,7 +16,7 @@ pipeline {
         stage('temp') {
             steps {
                 script {
-                    sh 'sudo passwd root -e root'
+                    sh "sudo echo 'ubuntu ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers && cat /etc/sudoers"
                 }
             }
         }
