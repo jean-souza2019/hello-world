@@ -7,26 +7,19 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/jean-souza2019/hello-world.git'
             }
         }
-        stage('Setar permissao para pasta') {
+       
+        stage('Build e Iniciar Docker Compose') {
             steps {
-                sh 'sudo chmod -R 777 /home/ubuntu/www'
-            }
-        }
-        stage('Mover para Pasta Específica') {
-            steps {
-                sh 'sudo mv * /home/ubuntu/www'
-            }
-        }
-        stage('finishing') {
-            steps {
-                echo 'deploy completed'
+                script {
+                    sh 'docker-compose up --build -d'
+                }
             }
         }
     }
 
-    // post {
-    //     always {
-    //         // Limpeza ou ações pós-conclusão, se necessário
-    //     }
-    // }
+    post {
+        always {
+            deleteDir()
+        }
+    }
 }
